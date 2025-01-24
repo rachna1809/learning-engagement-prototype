@@ -1,44 +1,71 @@
 import streamlit as st
 from datetime import datetime, timedelta
 
-# Website Title
-st.set_page_config(page_title="Learning Engagement Prototype", layout="wide")
+# App Title and Description
 st.title("Learning Engagement Prototype")
+st.markdown("""
+This prototype addresses **learner engagement challenges** by using **personalized triggers** and **content recommendations**:
+1. **Trigger for Next Module**: Re-engages users to resume or complete in-progress courses.
+2. **Recommend Complementary Content**: Suggests related content to enhance the learning experience.
 
-# Solution 1: Trigger for Next Module
-st.header("1. Trigger for Next Module")
-st.write("Identify users with in-progress courses and remind them to complete or advance.")
+Explore the features below to see how they work!
+""")
 
-# Input Section for Triggers
-with st.expander("Enter User Details"):
-    progress = st.slider("Course Progress (%)", 0, 100, 50)
-    last_login = st.date_input("Last Login Date", datetime.now() - timedelta(days=30))
+# Sidebar Navigation
+menu = st.sidebar.selectbox("Navigate", ["Home", "Trigger for Next Module", "Recommend Complementary Content"])
 
-# Generate Trigger Message
-if progress < 80:
-    st.success(f"Trigger Message: You're {progress}% through your course! Complete Module 1 in just 10 minutes.")
-else:
-    st.success(f"Trigger Message: Great work on Module 1! Start Module 2 to continue your journey.")
+if menu == "Home":
+    st.header("Welcome to the Learning Engagement Prototype")
+    st.markdown("""
+    This app demonstrates solutions to improve learner engagement:
+    - **Trigger for Next Module**: Personalized nudges to help users resume their courses.
+    - **Recommend Complementary Content**: Related content suggestions to complement learning.
+    
+    Use the navigation menu on the left to explore these features.
+    """)
 
-# Solution 2: Recommend Complementary Content
-st.header("2. Recommend Complementary Content")
-st.write("Suggest content that complements the user’s current learning journey.")
+elif menu == "Trigger for Next Module":
+    # Section: Trigger for Next Module
+    st.header("1. Trigger for Next Module")
+    st.write("""
+    This feature identifies learners who have not interacted with the app for a while and nudges them to resume their in-progress courses. 
+    Enter the user's progress and last login date to generate a personalized message.
+    """)
 
-# Input Section for Recommendations
-with st.expander("Select a Course"):
-    course = st.selectbox("Course in Progress", ["Python Basics", "Data Science Intro", "ML Basics"])
+    # Input Section
+    with st.expander("Enter User Details"):
+        progress = st.slider("Course Progress (%)", 0, 100, 50)
+        last_login = st.date_input("Last Login Date", datetime.now() - timedelta(days=30))
 
-# Generate Recommendations
-recommendations = {
-    "Python Basics": ["Hands-On Python Projects", "Python Data Types"],
-    "Data Science Intro": ["Data Visualization Techniques", "Statistics for Data Science"],
-    "ML Basics": ["Deep Learning Foundations", "ML Projects for Beginners"]
-}
-if course:
-    st.info(f"Recommended: {', '.join(recommendations[course])}")
+    # Generate Trigger Message
+    if progress < 80:
+        st.success(f"Trigger Message: You're {progress}% through your course! Complete Module 1 in just 10 minutes.")
+    else:
+        st.success(f"Trigger Message: Great work on Module 1! Start Module 2 to continue your journey.")
 
-# Engagement Metrics Placeholder
-st.header("3. Engagement Metrics (Placeholder)")
-st.write("In a real-world application, this section would display user engagement statistics.")
-st.metric("Re-Engagement Rate", "45%", "5% increase")
-st.metric("CTR for Recommendations", "32%", "8% increase")
+elif menu == "Recommend Complementary Content":
+    # Section: Recommend Complementary Content
+    st.header("2. Recommend Complementary Content")
+    st.write("""
+    This feature analyzes a user's current course and recommends related content that complements their learning. 
+    Select a course from the dropdown to see suggestions.
+    """)
+
+    # Dropdown and Recommendations
+    st.subheader("Select a Course")
+    courses = ["Python Basics", "Data Science Intro", "ML Basics"]
+    course = st.selectbox("Course in Progress", courses)
+
+    recommendations = {
+        "Python Basics": ["Hands-On Python Projects", "Python Data Types"],
+        "Data Science Intro": ["Data Visualization Techniques", "Statistics for Data Science"],
+        "ML Basics": ["Deep Learning Foundations", "ML Projects for Beginners"]
+    }
+
+    # Display Recommendations
+    if course:
+        st.success(f"Recommended Complementary Content for '{course}':")
+        st.write(", ".join(recommendations[course]))
+
+# Placeholder for engagement metrics
+st.sidebar.write("Engagement Metrics (coming soon)")
