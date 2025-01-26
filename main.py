@@ -13,7 +13,13 @@ This prototype addresses **learner engagement challenges** by targeting inactive
 # Sidebar Navigation
 menu = st.sidebar.radio(
     "Navigate",
-    ["Problem and User Segments", "Hypothesis and Solutions", "Success Metrics", "Interactive Prototype"]
+    [
+        "Problem and User Segments",
+        "Hypothesis and Solutions",
+        "Success Metrics",
+        "Testing and Learnings",
+        "Interactive Prototype",
+    ],
 )
 
 if menu == "Problem and User Segments":
@@ -70,46 +76,18 @@ elif menu == "Hypothesis and Solutions":
     st.write("- 🎯 Encouraging personalized nudges to continue learning content important to them.")
     st.write("- 🧩 Recommending complementary content to provide additional support to complete their learning.")
 
-elif menu == "Interactive Prototype":
-    # Interactive Prototype
-    st.header("Interactive Prototype")
-    st.subheader("1. Trigger for Next Module")
-    st.write("""
-    This feature identifies learners who have not interacted with the app for a while and nudges them to resume their in-progress courses. 
-    Enter the user's progress and last login date to generate a personalized message.
-    """)
+elif menu == "Success Metrics":
+    # Success Metrics
+    st.header("Success Metrics")
+    st.subheader("Re-engagement Rate")
+    st.write("- 📈 **Percentage of users logging in after receiving a nudge.**")
+    st.subheader("Engagement Metrics")
+    st.write("- ⏱️ **Time spent per session, number of sessions per week.**")
+    st.subheader("CTR on Recommendations")
+    st.write("- 🖱️ **Percentage of clicks on advanced content or next-step recommendations.**")
+    st.subheader("Completion Rate")
+    st.write("- ✅ **Increase in content completion percentages among targeted users.**")
 
-    # Input Section for Triggers
-    with st.expander("Enter User Details"):
-        progress = st.slider("Course Progress (%)", 0, 100, 50)
-        last_login = st.date_input("Last Login Date", datetime.now() - timedelta(days=30))
-
-    # Generate Trigger Message
-    if progress < 80:
-        st.success(f"Trigger Message: You're {progress}% through your course! Complete Module 1 in just 10 minutes.")
-    else:
-        st.success(f"Trigger Message: Great work on Module 1! Start Module 2 to continue your journey.")
-
-    st.subheader("2. Recommend Complementary Content")
-    st.write("""
-    This feature analyzes a user's current course and recommends related content that complements their learning. 
-    Select a course from the dropdown to see suggestions.
-    """)
-
-    # Dropdown and Recommendations
-    courses = ["Python Basics", "Data Science Intro", "ML Basics"]
-    course = st.selectbox("Course in Progress", courses)
-
-    recommendations = {
-        "Python Basics": ["Hands-On Python Projects", "Python Data Types"],
-        "Data Science Intro": ["Data Visualization Techniques", "Statistics for Data Science"],
-        "ML Basics": ["Deep Learning Foundations", "ML Projects for Beginners"]
-    }
-
-    # Display Recommendations
-    if course:
-        st.success(f"Recommended Complementary Content for '{course}':")
-        st.write(", ".join(recommendations[course]))
 elif menu == "Testing and Learnings":
     # Testing and Learnings
     st.header("Testing and Learnings")
@@ -154,3 +132,43 @@ elif menu == "Testing and Learnings":
         - Introduced more dynamic recommendations by incorporating user preferences and popular content among similar users.
     """)
 
+elif menu == "Interactive Prototype":
+    # Interactive Prototype
+    st.header("Interactive Prototype")
+    st.subheader("1. Trigger for Next Module")
+    st.write("""
+    This feature identifies learners who have not interacted with the app for a while and nudges them to resume their in-progress courses. 
+    Enter the user's progress and last login date to generate a personalized message.
+    """)
+
+    # Input Section for Triggers
+    with st.expander("Enter User Details"):
+        progress = st.slider("Course Progress (%)", 0, 100, 50)
+        last_login = st.date_input("Last Login Date", datetime.now() - timedelta(days=30))
+
+    # Generate Trigger Message
+    if progress < 80:
+        st.success(f"Trigger Message: You're {progress}% through your course! Complete Module 1 in just 10 minutes.")
+    else:
+        st.success(f"Trigger Message: Great work on Module 1! Start Module 2 to continue your journey.")
+
+    st.subheader("2. Recommend Complementary Content")
+    st.write("""
+    This feature analyzes a user's current course and recommends related content that complements their learning. 
+    Select a course from the dropdown to see suggestions.
+    """)
+
+    # Dropdown and Recommendations
+    courses = ["Python Basics", "Data Science Intro", "ML Basics"]
+    course = st.selectbox("Course in Progress", courses)
+
+    recommendations = {
+        "Python Basics": ["Hands-On Python Projects", "Python Data Types"],
+        "Data Science Intro": ["Data Visualization Techniques", "Statistics for Data Science"],
+        "ML Basics": ["Deep Learning Foundations", "ML Projects for Beginners"]
+    }
+
+    # Display Recommendations
+    if course:
+        st.success(f"Recommended Complementary Content for '{course}':")
+        st.write(", ".join(recommendations[course]))
