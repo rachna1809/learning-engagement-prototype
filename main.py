@@ -55,21 +55,20 @@ elif menu == "Hypothesis and Solutions":
     **Hypothesis**:  
     If we deliver highly effective and personalized learning experiences for moderate and high completers, users will achieve their learning goals more efficiently by engaging with relevant content, resulting in increased engagement, satisfaction, and completion rates.
     """)
+    
+    st.subheader("Why Focus on Moderate and High Completers?")
+    st.markdown("""
+    - **Moderate Completers**:
+        - Easier to re-engage compared to low completers.
+        - They already see some value, so targeted nudges or content might work well.
+    - **High Completers**:
+        - They are the most likely to re-engage.
+        - They already see significant value and may just need a reminder or new content.
+    """)
+
     st.subheader("Solutions")
     st.write("- 🎯 Encouraging personalized nudges to continue learning content important to them.")
     st.write("- 🧩 Recommending complementary content to provide additional support to complete their learning.")
-
-elif menu == "Success Metrics":
-    # Success Metrics
-    st.header("Success Metrics")
-    st.subheader("Re-engagement Rate")
-    st.write("- 📈 **Percentage of users logging in after receiving a nudge.**")
-    st.subheader("Engagement Metrics")
-    st.write("- ⏱️ **Time spent per session, number of sessions per week.**")
-    st.subheader("CTR on Recommendations")
-    st.write("- 🖱️ **Percentage of clicks on advanced content or next-step recommendations.**")
-    st.subheader("Completion Rate")
-    st.write("- ✅ **Increase in content completion percentages among targeted users.**")
 
 elif menu == "Interactive Prototype":
     # Interactive Prototype
