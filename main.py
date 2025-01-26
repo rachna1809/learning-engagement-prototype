@@ -110,3 +110,47 @@ elif menu == "Interactive Prototype":
     if course:
         st.success(f"Recommended Complementary Content for '{course}':")
         st.write(", ".join(recommendations[course]))
+elif menu == "Testing and Learnings":
+    # Testing and Learnings
+    st.header("Testing and Learnings")
+    
+    st.subheader("How Was It Tested?")
+    st.write("""
+    To evaluate the effectiveness of personalized nudges and content recommendations, A/B testing was conducted:
+    - **Control Group**: Did not receive personalized nudges or recommendations.
+    - **Variant Group**: Received:
+        - Personalized nudges to resume learning.
+        - Recommendations for complementary content.
+    - **Duration**: The test was conducted over a 4-week period to observe meaningful engagement patterns.
+    """)
+
+    st.subheader("Key Metrics Tracked")
+    st.write("""
+    - **Re-engagement Rate**: Percentage of users who logged in after receiving a nudge or recommendation.
+    - **CTR on Recommendations**: Percentage of users who clicked on complementary content suggestions.
+    - **Completion Rate**: Percentage of users who completed their in-progress courses.
+    """)
+
+    st.subheader("What Did I Learn?")
+    st.markdown("""
+    - **Moderate Completers**:
+        - Personalized nudges increased re-engagement by **15%**.
+        - Recommendations drove a **12% increase** in course completion rates.
+    - **High Completers**:
+        - Complementary content recommendations had a **CTR of 22%**.
+        - Users responded well to reminders about advanced or new content.
+    - **General Learnings**:
+        - Timing of nudges (e.g., sent during work hours) significantly impacted engagement.
+        - Overly frequent nudges led to diminishing returns, emphasizing the need for balance.
+    """)
+
+    st.subheader("How Did I Iterate?")
+    st.write("""
+    Based on these learnings, I made the following changes:
+    - **For Nudges**:
+        - Optimized the timing and frequency of reminders.
+        - Enhanced messaging to highlight user progress and the benefits of course completion.
+    - **For Recommendations**:
+        - Introduced more dynamic recommendations by incorporating user preferences and popular content among similar users.
+    """)
+
