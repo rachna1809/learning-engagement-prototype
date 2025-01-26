@@ -109,6 +109,15 @@ elif menu == "Testing and Learnings":
     - **Completion Rate**: Percentage of users who completed their in-progress courses.
     """)
 
+    st.subheader("Model Success Metrics")
+    st.write("""
+    To evaluate the recommendation model's effectiveness, the following metrics were tracked:
+    - **Precision@K**: Measures the relevance of the top-K recommendations.
+    - **Recall@K**: Evaluates how well the model retrieves relevant recommendations from the dataset.
+    - **F1 Score**: Balances precision and recall to provide an overall effectiveness score.
+    - **CTR (Click-Through Rate)**: Measures user interaction with recommended content.
+    """)
+
     st.subheader("What Did I Learn?")
     st.markdown("""
     - **Moderate Completers**:
@@ -122,6 +131,28 @@ elif menu == "Testing and Learnings":
         - Overly frequent nudges led to diminishing returns, emphasizing the need for balance.
     """)
 
+    st.subheader("Model Learnings and Refinements")
+    st.write("""
+    Key insights from testing helped refine the model:
+    - **Incorporating Time-Based Features**:
+        - Factoring in recency improved recommendations for users with recent activity spikes.
+    - **Adjusting Weighting for Popularity**:
+        - Balancing personalized recommendations with popular courses increased CTR.
+    - **User Segmentation for Recommendations**:
+        - Providing different recommendation strategies for new vs. experienced learners boosted engagement.
+    """)
+
+    st.subheader("Data Adjustments")
+    st.write("""
+    Data changes implemented during the refinement process included:
+    - **Enhanced Metadata**:
+        - Added course tags, categories, and skill levels for better matching.
+    - **User Activity Features**:
+        - Added features such as last login time, course completion rates, and session durations.
+    - **Filtered Outliers**:
+        - Excluded users with anomalous behavior to prevent skewed recommendations.
+    """)
+
     st.subheader("How Did I Iterate?")
     st.write("""
     Based on these learnings, I made the following changes:
@@ -131,7 +162,6 @@ elif menu == "Testing and Learnings":
     - **For Recommendations**:
         - Introduced more dynamic recommendations by incorporating user preferences and popular content among similar users.
     """)
-
 elif menu == "Interactive Prototype":
     # Interactive Prototype
     st.header("Interactive Prototype")
