@@ -27,57 +27,26 @@ if menu == "Problem and User Segments":
     70% of users on the platform are inactive (not logging in during the last 30 days). This indicates significant challenges in user engagement and retention.
     """)
     
-    # User Segments
-    st.subheader("User Segments")
+    # User Segments Table
+    st.subheader("User Segments Overview")
     st.write("The 70% of inactive users can be divided into four distinct groups:")
 
-    # Segment 1
-    st.markdown("### 1. Low Completers")
-    st.write("""
-    - **Who**: 20% of users who have completed less than 20% of their enrolled content.
-    - **Why**: These users likely struggled to find value or faced barriers in engaging.
-    - **Current Approach**: Ineffective onboarding flow.
-    - **Issues Identified**:
-        - Poor onboarding experience.
-        - Irrelevant content recommendations.
-        - Lack of motivation or clarity on how to proceed.
-    """)
-
-    # Segment 2
-    st.markdown("### 2. Moderate Completers")
-    st.write("""
-    - **Who**: 30% of inactive users who have completed 20-49% of their enrolled content.
-    - **Why**: These users showed initial interest but failed to sustain engagement.
-    - **Current Approach**: Generic email campaigns about new content releases.
-    - **Issues Identified**:
-        - Generic, non-personalized communication.
-        - Content fatigue from lack of variety.
-        - Absence of timely nudges or reminders.
-    """)
-
-    # Segment 3
-    st.markdown("### 3. High Completers")
-    st.write("""
-    - **Who**: 40% of inactive users who have completed 50-70% of their enrolled content.
-    - **Why**: These users engaged significantly but dropped off before completing their courses.
-    - **Current Approach**: Limited reminders and no advanced incentives.
-    - **Issues Identified**:
-        - Lack of advanced or motivating content.
-        - No follow-up emails or reminders.
-        - Limited incentives for returning to the platform.
-    """)
-
-    # Segment 4
-    st.markdown("### 4. Super Completers")
-    st.write("""
-    - **Who**: 10% of inactive users who have completed more than 70% of their enrolled content.
-    - **Why**: These users may have completed the content they were interested in and see little value in returning.
-    - **Current Approach**: No clear progression paths or incentives to re-engage.
-    - **Issues Identified**:
-        - Limited availability of new, challenging content.
-        - Lack of clear progression paths after completion.
-        - No incentives to explore additional topics or engage further.
-    """)
+    # Summary Table
+    st.table([
+        ["Segment", "Who", "Why", "Issues"],
+        ["🚶 Low Completers", "20% with <20% content completed", 
+         "Struggled to find value or faced barriers in engaging", 
+         "Poor onboarding, irrelevant content, lack of motivation"],
+        ["🏃 Moderate Completers", "30% with 20-49% content completed", 
+         "Showed interest but failed to sustain engagement", 
+         "Generic emails, content fatigue, no reminders"],
+        ["🥇 High Completers", "40% with 50-70% content completed", 
+         "Significant engagement but didn’t complete", 
+         "No follow-ups, lack of advanced content, limited incentives"],
+        ["🎓 Super Completers", "10% with >70% content completed", 
+         "Finished content but no reason to return", 
+         "Limited new content, no progression paths, lack of challenge"]
+    ])
 
 elif menu == "Hypothesis and Solutions":
     # Hypothesis and Solutions
@@ -87,20 +56,20 @@ elif menu == "Hypothesis and Solutions":
     If we deliver highly effective and personalized learning experiences for moderate and high completers, users will achieve their learning goals more efficiently by engaging with relevant content, resulting in increased engagement, satisfaction, and completion rates.
     """)
     st.subheader("Solutions")
-    st.write("- Encouraging personalized nudges to continue learning content important to them.")
-    st.write("- Recommending complementary content to provide additional support to complete their learning.")
+    st.write("- 🎯 Encouraging personalized nudges to continue learning content important to them.")
+    st.write("- 🧩 Recommending complementary content to provide additional support to complete their learning.")
 
 elif menu == "Success Metrics":
     # Success Metrics
     st.header("Success Metrics")
     st.subheader("Re-engagement Rate")
-    st.write("- Percentage of users logging in after receiving a nudge.")
+    st.write("- 📈 **Percentage of users logging in after receiving a nudge.**")
     st.subheader("Engagement Metrics")
-    st.write("- Time spent per session, number of sessions per week.")
+    st.write("- ⏱️ **Time spent per session, number of sessions per week.**")
     st.subheader("CTR on Recommendations")
-    st.write("- Percentage of clicks on advanced content or next-step recommendations.")
+    st.write("- 🖱️ **Percentage of clicks on advanced content or next-step recommendations.**")
     st.subheader("Completion Rate")
-    st.write("- Increase in content completion percentages among targeted users.")
+    st.write("- ✅ **Increase in content completion percentages among targeted users.**")
 
 elif menu == "Interactive Prototype":
     # Interactive Prototype
