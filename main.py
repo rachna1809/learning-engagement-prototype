@@ -1,14 +1,28 @@
 import streamlit as st
 from datetime import datetime, timedelta
 
-# Set page configuration
-st.set_page_config(page_title="Learning Engagement Prototype", layout="wide")
+if menu == "About the Prototype":
+    # About the Prototype Section
+    st.markdown('<h1 style="font-family:Arial; font-size:40px;">Improve Learner Engagement</h1>', unsafe_allow_html=True)
+    st.markdown('<h2 style="font-family:Helvetica Neue; font-size:24px;">Tell me and I forget, teach me and I may remember, involve me and I learn.</h2>', unsafe_allow_html=True)
+    
+    st.markdown("""
+    <p style="font-family:Arial; font-size:16px;">
+    Personalization in learning embodies this principle, turning passive recipients into active participants by tailoring content to individual needs, preferences, and learning styles. 
+    AI-powered personalization takes this further, leveraging data to analyze learner behavior, predict challenges, and deliver dynamic, adaptive content in real-time. 
+    This not only enhances engagement but also boosts retention and motivation by making learning feel relevant and intuitive. For organizations, integrating AI into education ensures scalable personalization, fostering meaningful connections between learners and content, ultimately driving better outcomes.
+    </p>
+    """, unsafe_allow_html=True)
 
-# App Title
-st.title("Learning Engagement Prototype")
-st.markdown("""
-This prototype addresses **learner engagement challenges** by targeting inactive users and encouraging re-engagement through personalized triggers and recommendations.
-""")
+    st.markdown("""
+    <p style="font-family:Arial; font-size:16px;">
+    This prototype is an attempt to demonstrate how AI is used to target inactive users to encourage and improve engagement through personalized triggers and recommendations.
+    </p>
+    """, unsafe_allow_html=True)
+    
+    # Next Section Link
+    st.markdown('<a href="#Problem and User Segments" style="font-size:16px; text-decoration:none; color:blue;">Next</a>', unsafe_allow_html=True)
+
 
 # Sidebar Navigation
 menu = st.sidebar.radio(
