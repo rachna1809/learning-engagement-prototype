@@ -13,7 +13,7 @@ menu = st.sidebar.radio(
     ],
 )
 
-# Home Navigation
+# Home Section
 if menu == "Home":
     st.markdown('<h1 style="font-family:Arial; font-size:40px;">Welcome to the Learning Engagement Prototype</h1>', unsafe_allow_html=True)
     st.markdown('<h2 style="font-family:Helvetica Neue; font-size:24px;">Navigate through the sections to explore the prototype.</h2>', unsafe_allow_html=True)
